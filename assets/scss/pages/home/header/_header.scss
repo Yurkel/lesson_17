@@ -1,0 +1,50 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.page-header {
+  background: linear-gradient($bg-gradient1);
+
+  &__grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "log act""log men";
+    gap: $gap;
+
+    @extend %container;
+  }
+
+  &__logo {
+    grid-area: log;
+  }
+
+  &__menu {
+    grid-area: men;
+  }
+
+  &__actions {
+    grid-area: act;
+  }
+
+  &__content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-title {
+      position: absolute;
+      max-width: 620px;
+      color: $color-white;
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 45px;
+      text-align: center;
+      padding: $gap;
+      margin: 0;
+    }
+  }
+}

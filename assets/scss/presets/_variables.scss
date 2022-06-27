@@ -1,9 +1,13 @@
-@use "sass:math";
-$ul: 1380px;
-$xl: 1200px;
-$lg: 992px;
-$md: 768px;
-$sm: 576px;
+$ul: 1360px;
+$lg: 1280px;
+$md: 992px;
+$sm: 768px;
+$xs: 576px;
+
 $gap: 20px;
-$gap-sm: math.div($gap, 2);
-$gap-lg: $gap * 1.5;
+$gap-sm: $gap * 0.5;
+
+$font-size: 16px;
+$font-primary: "TT Norms", sans-serif;
+
+$mobile-menu-size: 170px;
