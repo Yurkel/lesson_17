@@ -2,9 +2,33 @@
 @use "../../../mixins" as *;
 
 .actions {
+  display: flex;
+  gap: $gap-sm;
+  justify-content: flex-end;
+  align-items: center;
+
   &__languages {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
     display: flex;
-    gap: $gap;
-    justify-content: flex-end;
+    gap: 2px;
+  }
+
+  &__language-link {
+    display: block;
+    padding: 6px 6px 5px 7px;
+    border-radius: 8px;
+
+    &.active {
+      background-color: $color-accent;
+    }
+  }
+
+  &__locations {}
+
+  &__phone-link {
+    font-weight: 700;
+    white-space: nowrap;
   }
 }

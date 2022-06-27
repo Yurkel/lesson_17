@@ -383,25 +383,37 @@ a {
   font-weight: bold;
   font-style: normal;
   src: url("TTNorms-Bold.eot");
-  src: local("TT Norms Bold"), local("TTNorms-Bold"), url("../../fonts/TTNorms-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/TTNorms-Bold.woff2") format("woff2"), url("../../fonts/TTNorms-Bold.woff") format("woff"), url("../../fonts/TTNorms-Bold.ttf") format("truetype");
+  src: local("TT Norms Bold"), local("TTNorms-Bold"), url("../fonts/TTNorms-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/TTNorms-Bold.woff2") format("woff2"), url("../fonts/TTNorms-Bold.woff") format("woff"), url("../fonts/TTNorms-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "TT Norms";
   font-weight: 500;
   font-style: normal;
   src: url("TTNorms-Medium.eot");
-  src: local("TT Norms Medium"), local("TTNorms-Medium"), url("../../fonts/TTNorms-Medium.eot?#iefix") format("embedded-opentype"), url("../../fonts/TTNorms-Medium.woff2") format("woff2"), url("../../fonts/TTNorms-Medium.woff") format("woff"), url("../../fonts/TTNorms-Medium.ttf") format("truetype");
+  src: local("TT Norms Medium"), local("TTNorms-Medium"), url("../fonts/TTNorms-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/TTNorms-Medium.woff2") format("woff2"), url("../fonts/TTNorms-Medium.woff") format("woff"), url("../fonts/TTNorms-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "TT Norms";
   font-weight: normal;
   font-style: normal;
   src: url("TTNorms-Regular.eot");
-  src: local("TT Norms Regular"), local("TTNorms-Regular"), url("../../fonts/TTNorms-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/TTNorms-Regular.woff2") format("woff2"), url("../../fonts/TTNorms-Regular.woff") format("woff"), url("../../fonts/TTNorms-Regular.ttf") format("truetype");
+  src: local("TT Norms Regular"), local("TTNorms-Regular"), url("../fonts/TTNorms-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/TTNorms-Regular.woff2") format("woff2"), url("../fonts/TTNorms-Regular.woff") format("woff"), url("../fonts/TTNorms-Regular.ttf") format("truetype");
 }
 .page-header {
   background: -o-linear-gradient(48deg, #323264 15%, #323264 50%, #7a425e 88%);
   background: linear-gradient(42deg, #323264 15%, #323264 50%, #7a425e 88%);
+}
+.page-header::after {
+  content: "";
+  position: absolute;
+  top: 70%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(#323264), to(transparent));
+  background: -o-linear-gradient(bottom, #323264 0%, transparent 100%);
+  background: linear-gradient(to top, #323264 0%, transparent 100%);
+  z-index: 1;
 }
 .page-header__grid {
   position: absolute;
@@ -410,8 +422,9 @@ a {
   right: 0;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-areas: "log act" "log men";
   gap: 20px;
+  padding-top: 50px;
+  z-index: 2;
 }
 .page-header__logo {
   grid-area: log;
@@ -423,6 +436,7 @@ a {
   grid-area: act;
 }
 .page-header__content {
+  position: relative;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -430,12 +444,20 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.page-header__content-image {
+  margin-top: 200px;
 }
 .page-header__content-title {
   position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -65%);
+      -ms-transform: translate(-50%, -65%);
+          transform: translate(-50%, -65%);
   max-width: 620px;
   color: #ffffff;
   font-size: 38px;
@@ -444,6 +466,16 @@ a {
   text-align: center;
   padding: 20px;
   margin: 0;
+}
+.page-header__button {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .menu__btn {
@@ -460,14 +492,56 @@ a {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  font-size: 18px;
 }
 
-.actions__languages {
+.actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.actions__languages {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2px;
+}
+.actions__language-link {
+  display: block;
+  padding: 6px 6px 5px 7px;
+  border-radius: 8px;
+}
+.actions__language-link.active {
+  background-color: #f0145a;
+}
+.actions__phone-link {
+  font-weight: 700;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../img/05.header.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    background-size: 85vh;
+  }
+  .page-header__grid {
+    grid-template-areas: "log act" "log men";
+  }
 }
