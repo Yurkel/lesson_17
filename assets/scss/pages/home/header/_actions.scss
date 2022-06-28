@@ -1,11 +1,24 @@
 @use "../../../presets" as *;
 @use "../../../mixins" as *;
 
+
+
 .actions {
   display: flex;
   gap: $gap-sm;
-  justify-content: flex-end;
   align-items: center;
+
+  @include sm-min {
+    justify-content: flex-end;
+  }
+
+  @include sm {
+    justify-content: space-between;
+
+    a {
+      color: $color-gray-text;
+    }
+  }
 
   &__languages {
     font-size: 12px;
@@ -22,13 +35,26 @@
 
     &.active {
       background-color: $color-accent;
+      color: $color-white;
     }
   }
 
-  &__locations {}
+  &__locations {
+    @include sm {
+      display: none;
+    }
+  }
 
   &__phone-link {
     font-weight: 700;
     white-space: nowrap;
+  }
+
+  &__socials {
+    @include sm {
+      display: none;
+    }
+
+
   }
 }

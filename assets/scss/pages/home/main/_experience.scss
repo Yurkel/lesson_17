@@ -1,0 +1,36 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.experience {
+  background-color: $color-primary;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  &__container {
+    @extend %container;
+  }
+}
+
+.slider {
+  display: flex;
+  color: $color-white;
+  gap: 80px;
+
+  &__headers {
+    position: relative;
+  }
+
+  &__header {
+    color: $color-gray-text;
+    text-align: right;
+    font-size: 42px;
+    user-select: none;
+    position: relative;
+
+    &.active {
+      @extend %text-liner-gradient;
+    }
+  }
+
+  &__notes {}
+}

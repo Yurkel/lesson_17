@@ -2,18 +2,105 @@
 @use "../../../mixins" as *;
 
 .menu {
+  align-self: center;
+  font-size: 1.125rem;
 
   &__btn {
-    display: none;
+    position: relative;
+
+    width: 40px;
+    height: 30px;
+    margin-left: auto;
+
+    cursor: pointer;
+
+    @include sm-min {
+      display: none;
+    }
+
+    &-row {
+      position: absolute;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 5px;
+
+      transition: 0.25s ease-in-out;
+      transform: rotate(0deg);
+
+      opacity: 1;
+      border-radius: 5px;
+      background-color: $color-white;
+
+      &:nth-of-type(1) {
+        top: 0;
+      }
+
+      &:nth-of-type(2) {
+        top: 12px;
+      }
+
+      &:nth-of-type(3) {
+        top: 24px;
+      }
+    }
+
+    &.active span {
+      &:nth-of-type(1) {
+        top: 12px;
+
+        transform: rotate(135deg);
+      }
+
+      &:nth-of-type(2) {
+        left: -40px;
+
+        opacity: 0;
+      }
+
+      &:nth-of-type(3) {
+        top: 12px;
+
+        transform: rotate(-135deg);
+      }
+    }
   }
 
   &__list {
     @include unlist;
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end;
-    font-size: 18px;
+
+    @include sm-min {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    @include sm {
+      position: absolute;
+      top: 0;
+      right: -$mobile-menu-size;
+      display: none;
+      width: $mobile-menu-size;
+      height: 100vh;
+      padding: $gap;
+      background-color: $color-primary-alt;
+      box-shadow: -20px 0 15px rgba($color-black, 0.3);
+
+
+      &.active {
+        display: block;
+      }
+    }
   }
 
+  &__link {
+    display: block;
 
+    @include sm {
+      margin: $gap 0;
+    }
+  }
 }

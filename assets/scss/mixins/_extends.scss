@@ -9,3 +9,12 @@
   padding-right: $gap;
   padding-left: $gap;
 }
+
+%text-liner-gradient {
+  background: linear-gradient($text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}

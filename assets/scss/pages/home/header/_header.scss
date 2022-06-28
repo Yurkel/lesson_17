@@ -2,6 +2,7 @@
 @use "../../../mixins" as *;
 
 .page-header {
+  position: relative;
   background: linear-gradient($bg-gradient1);
 
   &::before {
@@ -29,23 +30,41 @@
     right: 0;
     display: grid;
     grid-template-columns: auto 1fr;
-
+    z-index: 2;
     gap: $gap;
     @extend %container;
-    padding-top: 50px;
-    z-index: 2;
 
     @include sm-min {
       grid-template-areas: "log act""log men";
+      padding-top: 50px;
     }
 
-    @include sm {}
+    @include sm {
+      grid-template-areas: "act act""log men";
+      padding-top: $gap;
+    }
 
+  }
+
+  &__border {
+    @include md {
+      display: none;
+    }
   }
 
   &__logo {
     grid-area: log;
+
+    &-image {
+      @include sm {
+        width: 55%;
+      }
+    }
+
+
   }
+
+
 
   &__menu {
     grid-area: men;
@@ -61,18 +80,19 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    overflow: hidden;
 
 
 
     &-image {
-      margin-top: 200px;
+      transform: translateY(10%);
     }
 
     &-title {
       position: absolute;
       left: 50%;
-      top: 50%;
-      transform: translate(-50%, -65%);
+      top: 60%;
+      transform: translate(-50%, -80%);
       max-width: 620px;
       color: $color-white;
       font-size: 38px;
@@ -86,10 +106,10 @@
 
   &__button {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: $gap;
     z-index: 2;
+    bottom: $gap;
+    left: 50%;
     cursor: pointer;
+    transform: translateX(-50%);
   }
 }
