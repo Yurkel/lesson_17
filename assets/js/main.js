@@ -21,7 +21,7 @@ const indicatorsList = document.querySelectorAll('.slider__indicator')
 const descriptionsList = document.querySelectorAll('.slider__description')
 
 let index = 0;
-let interval = 5000;
+let interval = 3500;
 let heightsArr = [];
 let heightMax = null;
 
