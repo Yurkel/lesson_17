@@ -1,0 +1,131 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.services {
+  position: relative;
+  background: linear-gradient($bg-gradient2);
+  border-radius: 0 0 12px 12px;
+
+
+  @include lg-min {
+    padding-bottom: 80px;
+  }
+
+  @include lg-sm {
+    padding-bottom: 50px;
+  }
+
+  @include sm {
+    padding-bottom: $gap;
+  }
+
+  &::before {
+    content: "";
+    @extend %grey-line-radius;
+    left: 40px;
+    right: 40px;
+    height: 20px;
+    background-color: $color-gray-separator;
+  }
+
+  &::after {
+    content: "";
+    @extend %grey-line-radius;
+    left: 20px;
+    right: 20px;
+    height: 10px;
+    background-color: $color-gray-text;
+  }
+
+  &__container {
+    @extend %container;
+  }
+
+  &__page-link {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $color-white;
+    opacity: 0.5;
+  }
+
+  &__title {
+    @extend %text-liner-gradient;
+
+    @include md-min {
+      width: max-content;
+    }
+
+    @include md-sm {
+      margin-bottom: 60px;
+      font-size: 42px;
+    }
+
+    @include sm {
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 50px 40px;
+
+    @include lg-min {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include lg-sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.services-item {
+  display: grid;
+  gap: 10px;
+  grid-template-rows: auto auto 1fr;
+
+  @include lg {
+    grid-template-columns: auto 1fr;
+  }
+
+  &__image {
+    @include sm-min {
+      width: 92px;
+      height: 92px;
+    }
+
+    @include sm {
+      width: 65px;
+      height: 65px;
+    }
+  }
+
+  &__title {
+    color: $color-active;
+    align-self: center;
+    font-weight: 500;
+
+    @include sm-min {
+      font-size: 24px;
+    }
+
+    @include sm {
+      font-size: 18px;
+    }
+  }
+
+  &__description {
+    color: $color-white;
+    line-height: 1.44;
+
+    @include sm-min {
+      font-size: 18px;
+    }
+
+    @include lg {
+      grid-column: 1 / span 3;
+    }
+  }
+}

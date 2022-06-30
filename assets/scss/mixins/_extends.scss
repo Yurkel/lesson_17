@@ -13,8 +13,11 @@
 %text-liner-gradient {
   background: linear-gradient($text-gradient);
   -webkit-background-clip: text;
-  background-clip: text;
-
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+}
+
+%grey-line-radius {
+  position: absolute;
+  top: 100%;
+  border-radius: 0 0 12px 12px;
 }
