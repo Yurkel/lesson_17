@@ -1,0 +1,80 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+
+.cases {
+  &__container {
+
+    @include md-min {
+      margin: 60px 60px 20px 60px;
+    }
+
+    @include md {
+      margin: 40px 20px 20px 20px;
+    }
+  }
+
+  &__grid-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    border-radius: 10px 0 0 0;
+  }
+
+  &__grid-bottom {
+    margin-top: 2px;
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    gap: 2px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+
+    &-title {
+      padding: $gap;
+      background-color: $color-gray-bg;
+      font-size: 14px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $color-accent;
+
+    }
+
+    &-content {
+      padding: $gap;
+      background-color: $color-gray-bg;
+
+
+      .cases__item-description {}
+
+      .cases__item-note {}
+    }
+
+  }
+
+  .cases__item {
+    /*border-radius: 0 10px 10px 10px;*/
+    padding-left: $gap;
+    padding-right: $gap;
+    background-color: $color-gray-bg;
+
+    &-description {
+      font-size: 24px;
+
+      /*display: flex;
+      align-items: flex-start;*/
+      color: $color-primary-soft;
+    }
+
+    &-note {
+      font-size: 18px;
+      line-height: 1.4;
+      color: $color-gray-text;
+    }
+  }
+}
