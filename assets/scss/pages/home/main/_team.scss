@@ -6,13 +6,6 @@
   &__container {
     @extend %container;
 
-    /*@include md-min {
-      margin: 60px 60px 20px 60px;
-    }
-
-    @include md {
-      margin: 40px 20px 20px 20px;
-    }*/
 
   }
 
@@ -21,6 +14,7 @@
     background-color: $color-gray-bg;
     border-radius: 10px;
     gap: 40px;
+    margin-top: 60px;
 
 
     @include md {
@@ -117,117 +111,21 @@
   }
 }
 
-/*.team {
+.slider__indicators-team {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 20px;
+}
 
-  &__container {
+.slider__indicator-team {
+  width: 16px;
+  height: 16px;
+  opacity: 0.2;
+  border-radius: 8px;
+  background-color: #24a3ff;
+}
 
-    @include md-min {
-      margin: 60px 60px 20px 60px;
-    }
-
-    @include md {
-      margin: 40px 20px 20px 20px;
-    }
-
-  }
-
-  &__content {
-    display: flex;
-    background-color: $color-gray-bg;
-    border-radius: 10px;
-    gap: 40px;
-
-
-    @include md {
-      flex-direction: column;
-      gap: 0;
-      align-items: center;
-    }
-  }
-
-
-
-  &__photo {
-    @include md-min {
-      height: 500px;
-      border-radius: 10px 0 0 10px;
-    }
-
-    @include md {
-      display: none;
-    }
-  }
-
-
-
-  &__item {
-
-    @include lg-min {
-      margin-top: 40px;
-      margin-right: 170px;
-    }
-
-    @include lg-md {
-      margin-top: 40px;
-
-      margin-left: 20px;
-      margin-right: 100px;
-    }
-
-    @include md {
-      margin: 20px 20px;
-
-
-    }
-
-  }
-
-  &__url {
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: $color-active;
-  }
-
-  &__description {
-    font-weight: 700;
-    @extend %text-liner-gradient;
-    margin-bottom: 20px;
-
-    @include lg-min {
-      font-size: 42px;
-    }
-
-    @include lg {
-      font-size: 32px;
-    }
-
-  }
-
-  &__notes {
-    display: flex;
-    gap: $gap-sm;
-    align-items: center;
-    color: $color-gray-text;
-
-    &-image {
-      @include md-min {
-        display: none;
-      }
-
-      @include md {}
-    }
-
-    &__note {
-
-      &-member {
-        font-size: 18px;
-      }
-
-      &-position {
-        font-size: 16px;
-      }
-    }
-  }
-}*/
+.slider__indicator-team.active {
+  opacity: 1;
+}
