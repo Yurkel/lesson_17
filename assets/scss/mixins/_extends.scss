@@ -21,3 +21,12 @@
   top: 100%;
   border-radius: 0 0 12px 12px;
 }
+
+%cases-grid {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  padding: $gap;
+  justify-content: flex-end;
+  background-color: $color-gray-bg;
+}
