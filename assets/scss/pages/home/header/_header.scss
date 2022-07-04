@@ -5,7 +5,7 @@
   position: relative;
   background: linear-gradient($bg-gradient1);
 
-  &::before {
+  /*&::before {
     @include sm-min {
       content: "";
       @include abs-position();
@@ -13,6 +13,7 @@
       background-repeat: no-repeat;
       background-position: 50% 80%;
       background-size: 85vh;
+      z-index: 1;
     }
   }
 
@@ -21,13 +22,14 @@
     @include abs-position(70%);
     background: linear-gradient(to top, $color-primary 0%, transparent 100%);
     z-index: 1;
-  }
+  }*/
+
 
   &__grid {
-    position: absolute;
+    /*position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    right: 0;*/
     display: grid;
     grid-template-columns: auto 1fr;
     z-index: 2;
@@ -113,3 +115,5 @@
     transform: translateX(-50%);
   }
 }
+
+.header-team {}
