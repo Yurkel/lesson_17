@@ -104,3 +104,28 @@
     }
   }
 }
+
+.menu__list-team {
+  white-space: nowrap;
+  @include unlist;
+
+  @include sm-min {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  @include sm {
+    position: absolute;
+    top: 0;
+    right: -$mobile-menu-size;
+    display: none;
+    width: $mobile-menu-size;
+    height: 100vh;
+    padding: $gap;
+    background-color: $color-gray-bg;
+    box-shadow: -20px 0 15px rgba($color-black, 0.3);
+
+  }
+}

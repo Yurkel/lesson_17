@@ -5,7 +5,7 @@
   position: relative;
   background: linear-gradient($bg-gradient1);
 
-  /*&::before {
+  &::before {
     @include sm-min {
       content: "";
       @include abs-position();
@@ -22,14 +22,13 @@
     @include abs-position(70%);
     background: linear-gradient(to top, $color-primary 0%, transparent 100%);
     z-index: 1;
-  }*/
-
+  }
 
   &__grid {
-    /*position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;*/
+    right: 0;
     display: grid;
     grid-template-columns: auto 1fr;
     z-index: 2;
@@ -45,7 +44,6 @@
       grid-template-areas: "act act""log men";
       padding-top: $gap;
     }
-
   }
 
   &__border {
@@ -62,8 +60,6 @@
         width: 55%;
       }
     }
-
-
   }
 
 
@@ -83,8 +79,6 @@
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
-
-
 
     &-image {
       transform: translateY(10%);
@@ -116,4 +110,43 @@
   }
 }
 
-.header-team {}
+.header-team {
+  height: 180px;
+  background: $color-white;
+
+
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  a {
+    color: $color-gray-text;
+  }
+
+  .menu__link {
+    color: $color-active;
+  }
+
+  .active-team {
+    color: $color-accent;
+    border-bottom: 2px solid $color-accent;
+  }
+
+  .page-header__logo-image {
+    @include md {
+      width: 55%;
+    }
+  }
+
+  .page-header__border {
+    @include md {
+      display: none;
+    }
+  }
+
+  .menu__btn-row {
+    background-color: $color-primary;
+  }
+}

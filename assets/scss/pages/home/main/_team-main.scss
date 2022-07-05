@@ -1,0 +1,113 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+
+.team-main {
+  &__container {
+    @extend %container;
+  }
+
+  &__title {
+    @extend %text-liner-gradient;
+
+    @include lg-min {
+      padding-left: 238px;
+      padding-right: 238px;
+      padding-bottom: 80px;
+      font-size: 42px;
+    }
+
+    @include lg-md {
+      padding-left: 150px;
+      padding-right: 150px;
+      padding-bottom: 40px;
+      font-size: 32px;
+    }
+
+    @include md {
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+
+    @include sm-min {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      padding-bottom: 60px;
+    }
+
+    @include sm-xs {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding-bottom: 40px;
+    }
+
+    @include xs {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 160px);
+      gap: 20px;
+      padding-bottom: 20px;
+    }
+
+  }
+
+  &__item {
+
+
+    @include xs {
+      display: flex;
+
+    }
+
+
+
+
+
+
+    &-image {
+      width: 100%;
+
+      @include xs {
+        width: fit-content;
+        height: 100%;
+      }
+    }
+
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+
+      @include xs {
+        padding-left: $gap;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 0;
+      }
+
+
+    }
+
+
+
+    &-name {
+      font-size: 18px;
+      color: $color-primary;
+    }
+
+    &-position {
+      color: $color-gray-text;
+
+      @include xs {
+        padding-top: 5px;
+        padding-bottom: 10px;
+      }
+    }
+
+
+  }
+}
